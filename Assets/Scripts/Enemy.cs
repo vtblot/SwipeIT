@@ -8,6 +8,11 @@ public class Enemy : MonoBehaviour {
 	private Vector2 cleanerPos;
 	[SerializeField] float speed = 3f;
 
+    [Header("When the enemy die")]
+    [SerializeField] float pollutionRadius = 1f;
+    [SerializeField] int numberOfPollutionToInstantiate;
+    [SerializeField] GameObject tachePrefab;
+
 	private void Start()
 	{
 		cleaner = GameObject.FindGameObjectWithTag("Cleaner");
@@ -19,7 +24,17 @@ public class Enemy : MonoBehaviour {
 		cleanerPos = cleaner.transform.position;
 		
 		transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), cleanerPos, speed * Time.deltaTime);
-
 	}
+
+    private void OnDestroy()
+    {
+        Vector3 pos;
+
+        for (int i = 0; i<numberOfPollutionToInstantiate; i++)
+        {
+            pos = Random.insideUnitCircle * pollutionRadius;
+            Instantiate(tachePrefab, pos, transform.rotation);
+        }
+    }
 
 }

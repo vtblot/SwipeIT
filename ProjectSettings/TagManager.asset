@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Cleaner
   - Gun
+  - Tache
   layers:
   - Default
   - TransparentFX

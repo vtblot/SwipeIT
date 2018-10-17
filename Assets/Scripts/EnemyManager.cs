@@ -38,6 +38,8 @@ public class EnemyManager : MonoBehaviour
 
 			yield return new WaitForSeconds(spawnTime);
 		}
-	}
+
+        yield break;
+    }
 	
 }
