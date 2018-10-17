@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class PollutionSpawner : MonoBehaviour {
 
-    [Header("X Spawn Range")]
-    [SerializeField] float xMax;
-    [SerializeField] float xMin;
-    [Header("Y Spawn Range")]
-    [SerializeField] float yMax;
-    [SerializeField] float yMin;
+    public Boundary boundary;
 
     [Space(10)]
     [SerializeField] GameObject pollutionPrefab;
@@ -45,8 +40,8 @@ public class PollutionSpawner : MonoBehaviour {
 
         while(playerHealth.currentHealth >= 0 )
         {
-            x = Random.Range(xMin, xMax);
-            y = Random.Range(yMin, yMax);
+            x = Random.Range(boundary.xMin, boundary.xMax);
+            y = Random.Range(boundary.yMin, boundary.yMax);
             
             Vector2 pos = new Vector2(x, y);
 

@@ -2,28 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GunMovement : MonoBehaviour {
 
 	[SerializeField] private float m_Speed;
 	private Rigidbody2D rb2D;
 	private Vector2 movement;
+    public Boundary boundary;
 
 
-	private void Awake()
+    private void Awake()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
 	}
 
 	private void FixedUpdate()
 	{
-		float inputX = Input.GetAxis("Horizontal2");
-		float inputY = Input.GetAxis("Vertical2");
+        float moveHorizontal = Input.GetAxis("Horizontal2");
+        float moveVertical = Input.GetAxis("Vertical2");
 
-		movement = new Vector2(
-				m_Speed * inputX,
-				m_Speed * inputY);
+        movement = new Vector2(moveHorizontal, moveVertical);
+        rb2D.velocity = movement * m_Speed;
 
-		rb2D.MovePosition(rb2D.position + movement * Time.fixedDeltaTime);
+        rb2D.position = new Vector2
+        (
+            Mathf.Clamp(rb2D.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp(rb2D.position.y, boundary.yMin, boundary.yMax)
+        );
 
-	}
+    }
 }
