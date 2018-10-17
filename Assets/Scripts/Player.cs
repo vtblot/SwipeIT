@@ -5,13 +5,22 @@ public class Player : MonoBehaviour {
 	[SerializeField] J1PlayerHealth playerHealth;
 	[SerializeField] float collisionDamage = 10f;
 
-	 void OnCollisionEnter2D(Collision2D collision)
+	private void Awake()
 	{
-		Debug.Log("hit");
+		playerHealth.currentHealth = 100f;
 	}
 
-	 void OnTriggerEnter2D(Collider2D collision)
+	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("hitTrigg");
+		Debug.Log(playerHealth.currentHealth);
+		if (playerHealth.currentHealth >= collisionDamage)
+		{
+			
+			playerHealth.currentHealth -= collisionDamage;
+		}
+		else
+		{
+			GameManager.instance.GameOver();
+		}
 	}
 }
