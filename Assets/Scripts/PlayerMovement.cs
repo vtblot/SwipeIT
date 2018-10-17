@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Controler : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
     //[SerializeField] private Transform m_SpawnPoint;
     [SerializeField] private float m_Speed;
 
@@ -20,9 +20,9 @@ public class Player1Controler : MonoBehaviour {
 
 
         movement = new Vector2(
-                m_Speed * inputX,
-                m_Speed * inputY
-            );
+                m_Speed * inputX * Time.deltaTime,
+                m_Speed * inputY * Time.deltaTime
+			);
     }
 
     private void FixedUpdate()
