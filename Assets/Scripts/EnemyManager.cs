@@ -1,29 +1,43 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
 	[SerializeField] J1PlayerHealth J1currentHealth;       
 	[SerializeField] GameObject enemy;                
 	[SerializeField] float spawnTime = 2f;            
-	[SerializeField] Transform[] spawnPoints;         
+	[SerializeField] Transform[] spawnPoints;
+	private List<GameObject> enemies = new List<GameObject>();
+	private int spawnPointIndex;
 
 
 	void Start()
 	{
-		InvokeRepeating("Spawn", spawnTime, spawnTime);
+		StartCoroutine(Spawn());
 	}
 
-
-	void Spawn()
+	IEnumerator Spawn()
 	{
-		if (J1currentHealth.currentHealth <= 0f)
+
+		spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+		GameObject enn = Instantiate(enemy, spawnPoints[spawnPointIndex]);
+
+		enemies.Add(enn);
+
+		yield return new WaitForSeconds(spawnTime);
+
+		while (enemies.Count > 0)
 		{
-			Debug.Log(J1currentHealth.currentHealth);
-			return;
+			spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+			 enn = Instantiate(enemy, spawnPoints[spawnPointIndex]);
+
+			enemies.Add(enn);
+
+			yield return new WaitForSeconds(spawnTime);
 		}
-		
-		int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-		
-		Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 	}
+	
 }
