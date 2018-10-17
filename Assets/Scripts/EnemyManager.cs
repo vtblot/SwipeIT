@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
-	[SerializeField] J1PlayerHealth J1currentHealth;       
+	[SerializeField] PlayerHealth J1currentHealth;       
 	[SerializeField] GameObject enemy;                
 	[SerializeField] float spawnTime = 2f;            
 	[SerializeField] Transform[] spawnPoints;

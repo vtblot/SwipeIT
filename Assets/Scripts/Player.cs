@@ -2,7 +2,7 @@
 
 public class Player : MonoBehaviour {
 
-	[SerializeField] J1PlayerHealth playerHealth;
+	[SerializeField] PlayerHealth playerHealth;
 	[SerializeField] float collisionDamage = 10f;
 
 	private void Awake()

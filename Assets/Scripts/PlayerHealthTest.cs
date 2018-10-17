@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealthTest : MonoBehaviour {
     [SerializeField] private Slider lifeField;
-    [SerializeField] J1PlayerHealth J1currentHealth;
+    [SerializeField] PlayerHealth J1currentHealth;
 
     // Use this for initialization
     void Start() {
