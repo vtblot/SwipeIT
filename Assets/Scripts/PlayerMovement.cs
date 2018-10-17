@@ -3,31 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    //[SerializeField] private Transform m_SpawnPoint;
+    
     [SerializeField] private float m_Speed;
+	private Rigidbody2D rb2D;
+	private Vector2 movement;
 
-    private Vector2 movement;
 
-    // Use this for initialization
-    void Start () {
-		
+	private void Awake()
+	{
+		rb2D = GetComponent<Rigidbody2D>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
-
-
-        movement = new Vector2(
-                m_Speed * inputX * Time.deltaTime,
-                m_Speed * inputY * Time.deltaTime
-			);
-    }
 
     private void FixedUpdate()
     {
-        GetComponent<Transform>().Translate(movement);
+		float inputX = Input.GetAxis("Horizontal");
+		float inputY = Input.GetAxis("Vertical");
 
-    }
+		movement = new Vector2(
+				m_Speed * inputX,
+				m_Speed * inputY);
+		
+		rb2D.MovePosition(rb2D.position + movement * Time.fixedDeltaTime);
+
+	}
 }
