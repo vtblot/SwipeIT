@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class GunMovement : MonoBehaviour {
 
-	[SerializeField] private float m_Speed;
+	[SerializeField] float m_Speed;
+	[SerializeField] float m_RotationSpeed;
 	private Rigidbody2D rb2D;
 	private Vector2 movement;
     public Boundary boundary;
-
-
-    private void Awake()
+	private TobiiCursor tc;
+	private float angle;
+	
+	private void Awake()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
+		tc = GetComponent<TobiiCursor>();
 	}
 
 	private void FixedUpdate()
@@ -23,8 +26,13 @@ public class GunMovement : MonoBehaviour {
 
         movement = new Vector2(moveHorizontal, moveVertical);
         rb2D.velocity = movement * m_Speed;
+		Vector2 tmp = Camera.main.ScreenToWorldPoint(tc.GetCursorPosition());
+		Vector2 targetDir = tmp - (Vector2)transform.position;
+		angle = Mathf.Atan2(tmp.y, tmp.x) * Mathf.Rad2Deg;
+		Debug.Log(angle);
+		transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-        rb2D.position = new Vector2
+		rb2D.position = new Vector2
         (
             Mathf.Clamp(rb2D.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp(rb2D.position.y, boundary.yMin, boundary.yMax)
         );
