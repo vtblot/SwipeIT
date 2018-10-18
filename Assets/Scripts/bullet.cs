@@ -16,12 +16,12 @@ public class bullet : MonoBehaviour {
         transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody2D>();
 
-        force = new Vector2(0, 0);
+        force = new Vector2(0.7f, 0.7f);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        rigidbody.MovePosition(rigidbody.position + force * Time.fixedDeltaTime);
+        rigidbody.MovePosition(rigidbody.position + force * 3 * Time.fixedDeltaTime);
     }
 
     public void setShot(float x, float y, float speed)
