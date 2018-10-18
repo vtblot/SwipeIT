@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.gameObject.tag.Equals("Ground"))
+		if(collision.gameObject.tag.Equals("Limits"))
 		{
 			Destroy(gameObject, 0);
 		}
@@ -14,6 +12,7 @@ public class Bullet : MonoBehaviour {
 		if (collision.gameObject.tag.Equals("Enemy"))
 		{
 			Destroy(collision.gameObject, 0);
+			Destroy(gameObject, 0);
 		}
 	}
 }

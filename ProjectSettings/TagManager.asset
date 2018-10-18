@@ -11,6 +11,7 @@ TagManager:
   - Cleaner
   - Gun
   - Tache
+  - Limits
   layers:
   - Default
   - TransparentFX

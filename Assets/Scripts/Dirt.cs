@@ -6,28 +6,25 @@ using UnityEngine.UI;
 public class Dirt : MonoBehaviour {
 
     [SerializeField] private int maxDirt;
-    [SerializeField] private Slider dirtSlider;
+    private Slider dirtSlider;
 	// Use this for initialization
 	void Start () {
-        dirtSlider.maxValue = maxDirt;
+		dirtSlider = GetComponent<Slider>();
+		dirtSlider.maxValue = maxDirt;
         dirtSlider.value = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		int dirts = GameObject.FindGameObjectsWithTag("Tache").Length;
+
+		if (dirts >= maxDirt)
+		{
+			GameManager.instance.GameOver();
+		}
+
+		dirtSlider.value = dirts;
 		
 	}
-
-    void FixedUpdate()
-    {
-        int dirts = GameObject.FindGameObjectsWithTag("Tache").Length;
-
-        if (dirts >= maxDirt)
-        {
-            GameManager.instance.GameOver();
-        }
-
-        dirtSlider.value = dirts;
-    }
 
 }

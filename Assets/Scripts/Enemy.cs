@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
     [Header("When the enemy die")]
     [SerializeField] float pollutionRadius = 1f;
     [SerializeField] int numberOfPollutionToInstantiate;
-    [SerializeField] GameObject tachePrefab;
+    [SerializeField] GameObject[] tachePrefab;
 
 	private void Start()
 	{
@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour {
 		transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), cleanerPos, speed * Time.deltaTime);
 
         float angle = Mathf.Atan2(cleanerPos.x - transform.position.x, cleanerPos.y - transform.position.y) * Mathf.Rad2Deg;
-        Debug.Log(angle);
 
         transform.rotation = Quaternion.AngleAxis(-angle, Vector3.forward);
 
@@ -39,10 +38,10 @@ public class Enemy : MonoBehaviour {
     {
         Vector3 pos;
 
-        for (int i = 0; i<numberOfPollutionToInstantiate; i++)
-        {
-            pos = Random.insideUnitCircle * pollutionRadius;
-            Instantiate(tachePrefab, pos, transform.rotation);
+		for (int i = 0; i < numberOfPollutionToInstantiate; i++)
+		{
+			pos = (Vector2)transform.position + Random.insideUnitCircle * pollutionRadius;
+			Instantiate(tachePrefab[Random.Range(0, tachePrefab.Length)], pos, transform.rotation);
         }
     }
 

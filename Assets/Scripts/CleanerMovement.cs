@@ -17,8 +17,8 @@ public class CleanerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal2");
+        float moveVertical = Input.GetAxis("Vertical2");
 
         movement = new Vector2(moveHorizontal, moveVertical);
         rb2D.velocity = movement * m_Speed;

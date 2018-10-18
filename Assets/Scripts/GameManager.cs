@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
+
+	[SerializeField] GameObject endCanvas;
+	[SerializeField] Score endScore;
+	[SerializeField] Text endTextScore;
 
 	void Awake()
 	{
@@ -19,12 +21,14 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		endCanvas.SetActive(false);
+		Time.timeScale = 0;
 	}
 	
 	public void GameOver()
 	{
-		Debug.Log("Game Over");
-        SceneManager.LoadScene("Scenes/GameOver");
+		endTextScore.text = endScore.currentScore.ToString();
+		endCanvas.SetActive(true);
+		Time.timeScale = 0;
     }
 }

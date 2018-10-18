@@ -21,15 +21,14 @@ public class GunMovement : MonoBehaviour {
 
 	private void FixedUpdate()
 	{
-        float moveHorizontal = Input.GetAxis("Horizontal2");
-        float moveVertical = Input.GetAxis("Vertical2");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
         movement = new Vector2(moveHorizontal, moveVertical);
         rb2D.velocity = movement * m_Speed;
 		Vector2 tmp = Camera.main.ScreenToWorldPoint(tc.GetCursorPosition());
 		Vector2 targetDir = tmp - (Vector2)transform.position;
 		angle = Mathf.Atan2(tmp.y, tmp.x) * Mathf.Rad2Deg;
-		Debug.Log(angle);
 		transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
 		rb2D.position = new Vector2

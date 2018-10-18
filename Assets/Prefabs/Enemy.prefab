@@ -91,9 +91,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   pollutionRadius: 1
-  numberOfPollutionToInstantiate: 0
-  tachePrefab: {fileID: 1699872834344624, guid: a84df4a32e97d7d49b0ee04dc7023eaf,
-    type: 2}
+  numberOfPollutionToInstantiate: 3
+  tachePrefab:
+  - {fileID: 1677238843953034, guid: e8f3ce72be65b9d498ea44a783b756ce, type: 2}
+  - {fileID: 1677238843953034, guid: ce7e1bfdc3319bf479984b8cb919b897, type: 2}
+  - {fileID: 1625137914192332, guid: 672dc03fc703b174eaf6d4c7e221192e, type: 2}
+  - {fileID: 1383816495099238, guid: c9ddbc98aa2e8274a9fd76d04f7c726b, type: 2}
 --- !u!212 &212468747135884060
 SpriteRenderer:
   m_ObjectHideFlags: 1

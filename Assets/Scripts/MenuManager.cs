@@ -25,4 +25,9 @@ public class MenuManager : MonoBehaviour {
         UnityEditor.EditorApplication.isPlaying = false;
         //Application.Quit ();
     }
+
+	public void GoToMenu()
+	{
+		SceneManager.LoadScene("Menu");
+	}
 }

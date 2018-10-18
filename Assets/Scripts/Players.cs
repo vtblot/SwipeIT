@@ -7,7 +7,7 @@ public class Players : MonoBehaviour {
 	[SerializeField] PlayerHealth playerHealth;
 	[SerializeField] float collisionDamage = 10f;
 
-    [SerializeField] Slider lifeSlider;
+    
 
     private void Awake()
 	{
@@ -20,7 +20,7 @@ public class Players : MonoBehaviour {
         {
             //Le joueur n'était pas détecté en tant que mort quand il avait 0HP
             playerHealth.currentHealth -= collisionDamage;
-            lifeSlider.value = playerHealth.currentHealth;
+			HUDManager.Instance.UpdateLife(playerHealth.currentHealth);
 
             if (playerHealth.currentHealth <= 0)
             {
@@ -31,7 +31,7 @@ public class Players : MonoBehaviour {
         if (gameObject.tag.Equals("Cleaner") && collision.gameObject.tag.Equals("Tache"))
         {
             PollutionSpawner.Instance.clearPosition(collision.gameObject.transform.position);
-            ScoreManager.Instance.AddScore();
+            HUDManager.Instance.AddScore();
             Destroy(collision.gameObject);
         }
 
