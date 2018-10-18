@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour {
 	
 	private GameObject cleaner;
 	private Vector2 cleanerPos;
-    private Rigidbody2D rgd;
+    //private Rigidbody2D rgd;
 	[SerializeField] float speed = 3f;
 
     [Header("When the enemy die")]
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour {
 
 	private void Start()
 	{
-        rgd = GetComponent<Rigidbody2D>();
+        //rgd = GetComponent<Rigidbody2D>();
         cleaner = GameObject.FindGameObjectWithTag("Cleaner");
 		cleanerPos = cleaner.transform.position;
 	}
@@ -26,7 +26,12 @@ public class Enemy : MonoBehaviour {
 		cleanerPos = cleaner.transform.position;
 		
 		transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), cleanerPos, speed * Time.deltaTime);
-        
+
+        float angle = Mathf.Atan2(cleanerPos.x - transform.position.x, cleanerPos.y - transform.position.y) * Mathf.Rad2Deg;
+        Debug.Log(angle);
+
+        transform.rotation = Quaternion.AngleAxis(-angle, Vector3.forward);
+
 
     }
 
