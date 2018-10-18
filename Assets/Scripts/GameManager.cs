@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField] GameObject endCanvas;
 	[SerializeField] Score endScore;
-	[SerializeField] Text endTextScore;
+    [SerializeField] Text endTextScore;
 
 	void Awake()
 	{
