@@ -7,7 +7,7 @@ public class PollutionSpawner : MonoBehaviour {
     public Boundary boundary;
 
     [Space(10)]
-    [SerializeField] GameObject[] pollutionPrefab;
+    [SerializeField] GameObject pollutionPrefab;
 
     [Space(10)]
     [SerializeField] float waitingForNextSpawn = 1f;
@@ -37,9 +37,8 @@ public class PollutionSpawner : MonoBehaviour {
 	IEnumerator Spawn()
     {
         float x, y;
-        int rand = 0;
 
-        while (playerHealth.currentHealth >= 0 )
+        while(playerHealth.currentHealth >= 0 )
         {
             x = Random.Range(boundary.xMin, boundary.xMax);
             y = Random.Range(boundary.yMin, boundary.yMax);
@@ -54,8 +53,7 @@ public class PollutionSpawner : MonoBehaviour {
 
             positionsAlreadyGiven.Add(pos);
 
-            rand = Random.Range(0, 3);
-            Instantiate(pollutionPrefab[rand], pos, transform.rotation);
+            Instantiate(pollutionPrefab, pos, transform.rotation);
 
             yield return new WaitForSeconds(waitingForNextSpawn);
         }
