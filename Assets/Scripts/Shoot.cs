@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
 	[SerializeField] Transform bulletSpawn;
 	[SerializeField] GameObject bulletPrefab;
+	[SerializeField] float bulletSpeed = 5f;
 	// Use this for initialization
 	void Start()
 	{
@@ -17,18 +18,9 @@ public class Shoot : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+			GameObject b = Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
 
-			if (hit.collider != null)
-			{
-				Vector2 dir = (hit.collider.gameObject.transform.position - transform.position).normalized;
-				float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-				Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-				transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.5f);
-				GameObject bul = Instantiate(bulletPrefab, bulletSpawn.position, q);
-			
-			}
-
+			b.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
 		}
 	}
 }

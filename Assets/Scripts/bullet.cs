@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour {
 
-    Transform transform;
-    Rigidbody2D rigidbody;
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.tag.Equals("Ground"))
+		{
+			Destroy(gameObject, 0);
+		}
+	}
 
+<<<<<<< HEAD
+=======
     [SerializeField] float speed;
 
     Vector2 force;
@@ -30,4 +37,5 @@ public class bullet : MonoBehaviour {
         force = new Vector2(x, y);
     }
     
+>>>>>>> d22e562b129056c03d9dadff0b5a030cbc09dad5
 }
