@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour {
 		cleanerPos = cleaner.transform.position;
 		
 		transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), cleanerPos, speed * Time.deltaTime);
-        rgd.rotation = Quaternion.Euler(0, Mathf.Atan2(cleanerPos.x, cleanerPos.y) * Mathf.Rad2Deg, 0);
+        
 
     }
 

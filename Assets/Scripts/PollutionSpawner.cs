@@ -7,7 +7,7 @@ public class PollutionSpawner : MonoBehaviour {
     public Boundary boundary;
 
     [Space(10)]
-    [SerializeField] GameObject pollutionPrefab;
+    [SerializeField] GameObject[] pollutionPrefab;
 
     [Space(10)]
     [SerializeField] float waitingForNextSpawn = 1f;
@@ -53,7 +53,7 @@ public class PollutionSpawner : MonoBehaviour {
 
             positionsAlreadyGiven.Add(pos);
 
-            Instantiate(pollutionPrefab, pos, transform.rotation);
+            Instantiate(pollutionPrefab[Random.Range(0, pollutionPrefab.Length)], pos, transform.rotation);
 
             yield return new WaitForSeconds(waitingForNextSpawn);
         }
