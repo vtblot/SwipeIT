@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 	
 	private GameObject cleaner;
 	private Vector2 cleanerPos;
+    private Rigidbody2D rgd;
 	[SerializeField] float speed = 3f;
 
     [Header("When the enemy die")]
@@ -15,7 +16,8 @@ public class Enemy : MonoBehaviour {
 
 	private void Start()
 	{
-		cleaner = GameObject.FindGameObjectWithTag("Cleaner");
+        rgd = GetComponent<Rigidbody2D>();
+        cleaner = GameObject.FindGameObjectWithTag("Cleaner");
 		cleanerPos = cleaner.transform.position;
 	}
 
@@ -24,7 +26,9 @@ public class Enemy : MonoBehaviour {
 		cleanerPos = cleaner.transform.position;
 		
 		transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), cleanerPos, speed * Time.deltaTime);
-	}
+        rgd.rotation = Quaternion.Euler(0, Mathf.Atan2(cleanerPos.x, cleanerPos.y) * Mathf.Rad2Deg, 0);
+
+    }
 
     private void OnDestroy()
     {
