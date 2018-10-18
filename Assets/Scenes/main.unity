@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundary: {fileID: 11400000, guid: 90dcff28f6efb74439fe8a6f13847dcd, type: 2}
-  pollutionPrefab: {fileID: 1699872834344624, guid: a84df4a32e97d7d49b0ee04dc7023eaf,
+  pollutionPrefab: {fileID: 1677238843953034, guid: e8f3ce72be65b9d498ea44a783b756ce,
     type: 2}
   waitingForNextSpawn: 1
   playerHealth: {fileID: 11400000, guid: 05477c94d0415d0449235aa6fa0724b6, type: 2}

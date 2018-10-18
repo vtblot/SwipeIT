@@ -18,7 +18,7 @@ public class Players : MonoBehaviour {
 	{
 		if(collision.gameObject.tag.Equals("Enemy"))
         {
-            if (playerHealth.currentHealth >= collisionDamage)
+            /*if (playerHealth.currentHealth >= collisionDamage)
             {
                 playerHealth.currentHealth -= collisionDamage;
                 lifeSlider.value = playerHealth.currentHealth;
@@ -26,7 +26,17 @@ public class Players : MonoBehaviour {
             else
             {
                 GameManager.instance.GameOver();
+            }*/
+
+            //Le joueur n'était pas détecté en tant que mort quand il avait 0HP
+            playerHealth.currentHealth -= collisionDamage;
+            lifeSlider.value = playerHealth.currentHealth;
+
+            if (playerHealth.currentHealth <= 0)
+            {
+                GameManager.instance.GameOver();
             }
+
         }
         if (gameObject.tag.Equals("Cleaner") && collision.gameObject.tag.Equals("Tache"))
         {
