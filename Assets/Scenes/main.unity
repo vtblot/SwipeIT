@@ -1113,8 +1113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundary: {fileID: 11400000, guid: 90dcff28f6efb74439fe8a6f13847dcd, type: 2}
-  pollutionPrefab: {fileID: 1699872834344624, guid: a84df4a32e97d7d49b0ee04dc7023eaf,
-    type: 2}
+  pollutionPrefab:
+  - {fileID: 1677238843953034, guid: e8f3ce72be65b9d498ea44a783b756ce, type: 2}
+  - {fileID: 1677238843953034, guid: ce7e1bfdc3319bf479984b8cb919b897, type: 2}
+  - {fileID: 1625137914192332, guid: 672dc03fc703b174eaf6d4c7e221192e, type: 2}
+  - {fileID: 1383816495099238, guid: c9ddbc98aa2e8274a9fd76d04f7c726b, type: 2}
   waitingForNextSpawn: 1
   playerHealth: {fileID: 11400000, guid: 05477c94d0415d0449235aa6fa0724b6, type: 2}
 --- !u!1 &1314795028
@@ -1373,7 +1376,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
