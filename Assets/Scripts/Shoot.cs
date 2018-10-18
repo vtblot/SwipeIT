@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tobii.Gaming;
+
 
 public class Shoot : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class Shoot : MonoBehaviour
 			b.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
 		}
 	}
+
+
 }
 
 	

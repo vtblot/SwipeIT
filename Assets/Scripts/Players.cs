@@ -18,16 +18,6 @@ public class Players : MonoBehaviour {
 	{
 		if(collision.gameObject.tag.Equals("Enemy"))
         {
-            /*if (playerHealth.currentHealth >= collisionDamage)
-            {
-                playerHealth.currentHealth -= collisionDamage;
-                lifeSlider.value = playerHealth.currentHealth;
-            }
-            else
-            {
-                GameManager.instance.GameOver();
-            }*/
-
             //Le joueur n'était pas détecté en tant que mort quand il avait 0HP
             playerHealth.currentHealth -= collisionDamage;
             lifeSlider.value = playerHealth.currentHealth;
