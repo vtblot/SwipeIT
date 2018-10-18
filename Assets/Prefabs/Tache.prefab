@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4255952323441952}
   - component: {fileID: 212223156529131276}
   - component: {fileID: 58524469576769972}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tache
   m_TagString: Tache
   m_Icon: {fileID: 0}
