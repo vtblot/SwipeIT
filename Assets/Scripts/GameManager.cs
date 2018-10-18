@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		endCanvas.SetActive(false);
-		Time.timeScale = 0;
+		Time.timeScale = 1;
 	}
 	
 	public void GameOver()
