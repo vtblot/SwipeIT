@@ -41,8 +41,9 @@ public class Players : MonoBehaviour {
         if (gameObject.tag.Equals("Cleaner") && collision.gameObject.tag.Equals("Tache"))
         {
             PollutionSpawner.Instance.clearPosition(collision.gameObject.transform.position);
-
+            ScoreManager.Instance.AddScore();
             Destroy(collision.gameObject);
         }
+
     }
 }
