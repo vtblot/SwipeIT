@@ -23,6 +23,8 @@ public class Shoot : MonoBehaviour
 			GameObject b = Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
 
 			b.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
+
+			FindObjectOfType<AudioManager>().Play("shootSound");
 		}
 	}
 

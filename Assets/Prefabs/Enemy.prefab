@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07e763bc6aa9de4e9900b309defefcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.5
   pollutionRadius: 1
   numberOfPollutionToInstantiate: 3
   tachePrefab:

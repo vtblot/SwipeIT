@@ -17,7 +17,8 @@ public class MenuManager : MonoBehaviour {
 
     public void LaunchLevel(string level)
     {
-        SceneManager.LoadScene("Scenes/"+level);
+		FindObjectOfType<AudioManager>().Play("clickSound");
+		SceneManager.LoadScene("Scenes/"+level);
     }
 
     public void QuitGame()

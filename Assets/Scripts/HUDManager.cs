@@ -14,8 +14,6 @@ public class HUDManager : MonoBehaviour {
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
 		score.currentScore = 0;
     }
 
