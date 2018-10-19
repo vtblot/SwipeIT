@@ -21,8 +21,8 @@ public class GunMovement : MonoBehaviour {
 
 	private void FixedUpdate()
 	{
-        float moveHorizontal = Input.GetAxis("GunHo");
-        float moveVertical = Input.GetAxis("GunVer");
+        float moveHorizontal = Input.GetAxis("Horizontal2");
+        float moveVertical = Input.GetAxis("Vertical2");
 
         movement = new Vector2(moveHorizontal, moveVertical);
         rb2D.velocity = movement * m_Speed;
