@@ -12,6 +12,7 @@ TagManager:
   - Gun
   - Tache
   - Limits
+  - BeachBall
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Gun
   - Balles
   - PostProcessing
-  - 
+  - BeachBall
   - 
   - 
   - 
