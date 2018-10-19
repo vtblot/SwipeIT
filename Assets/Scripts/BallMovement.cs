@@ -59,6 +59,5 @@ public class BallMovement : MonoBehaviour {
     {
         spawnPoints = transforms;
         isConf = true;
-        Debug.Log("Conf");
     }
 }

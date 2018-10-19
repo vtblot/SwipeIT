@@ -27,7 +27,6 @@ public class GunMovement : MonoBehaviour {
         movement = new Vector2(moveHorizontal, moveVertical);
         rb2D.velocity = movement * m_Speed;
 		Vector2 tmp = Camera.main.ScreenToWorldPoint(tc.GetCursorPosition());
-		Vector2 targetDir = tmp - (Vector2)transform.position;
 		angle = Mathf.Atan2(tmp.y, tmp.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
