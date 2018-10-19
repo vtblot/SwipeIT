@@ -1730,18 +1730,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114848752032923372, guid: ef316e4e062ee8a41b781f398278f95d,
         type: 2}
-      propertyPath: sounds.Array.data[3].volume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114848752032923372, guid: ef316e4e062ee8a41b781f398278f95d,
-        type: 2}
-      propertyPath: sounds.Array.data[2].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114848752032923372, guid: ef316e4e062ee8a41b781f398278f95d,
-        type: 2}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0.3
+      propertyPath: sounds.Array.data[6].name
+      value: gameOver
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef316e4e062ee8a41b781f398278f95d, type: 2}

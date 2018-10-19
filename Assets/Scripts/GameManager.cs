@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] Score endScore;
     [SerializeField] Text endTextScore;
 
+	private AudioManager audioManager;
+
 	void Awake()
 	{
 		if (instance == null)
@@ -21,10 +23,14 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		endCanvas.SetActive(false);
 		Time.timeScale = 1;
+		audioManager = FindObjectOfType<AudioManager>();
+		audioManager.Play("theme");
 	}
 	
 	public void GameOver()
 	{
+		audioManager.Stop("theme");
+		audioManager.Play("gameOver");
 		endTextScore.text = endScore.currentScore.ToString();
 		endCanvas.SetActive(true);
 		Time.timeScale = 0;

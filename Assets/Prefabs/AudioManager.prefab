@@ -54,7 +54,7 @@ MonoBehaviour:
   sounds:
   - name: cleanSound
     clip: {fileID: 8300000, guid: dd82ad72ea3975842bc5835e7fa0a74c, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -66,12 +66,30 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: deathSound
     clip: {fileID: 8300000, guid: a502586931560df4c8723c9c907cc94e, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: shootSound
     clip: {fileID: 8300000, guid: 6b92f44e3ed87e742910291df083e8c7, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: theme
+    clip: {fileID: 8300000, guid: 946f329ced9572241a8168668136bc09, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: menuMusic
+    clip: {fileID: 8300000, guid: 57adbac08183f864790405f32146da02, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: deathSound
+    clip: {fileID: 8300000, guid: 7ad04800db8e07a43b2b2fc0240843c9, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0

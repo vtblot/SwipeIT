@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
 
@@ -18,7 +19,15 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    public void Play(string name)
+	private void Start()
+	{
+		if (SceneManager.GetActiveScene().name.Equals("Menu"))
+		{
+			Play("menuMusic");
+		}
+	}
+
+	public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
