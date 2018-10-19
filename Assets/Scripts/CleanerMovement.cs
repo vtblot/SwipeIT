@@ -17,8 +17,8 @@ public class CleanerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal2");
-        float moveVertical = Input.GetAxis("Vertical2");
+        float moveHorizontal = Input.GetAxis("CleaHo");
+        float moveVertical = Input.GetAxis("CleaVer");
 
         movement = new Vector2(moveHorizontal, moveVertical);
         rb2D.velocity = movement * m_Speed;
@@ -27,5 +27,7 @@ public class CleanerMovement : MonoBehaviour {
         (
             Mathf.Clamp(rb2D.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp(rb2D.position.y, boundary.yMin, boundary.yMax)
         );
-	}
+
+        transform.eulerAngles = new Vector3(0, 0, (Mathf.Atan2(moveVertical, moveHorizontal) * 180 / Mathf.PI)-90);
+    }
 }
