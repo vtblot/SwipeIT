@@ -22,7 +22,6 @@ public class BallMovement : MonoBehaviour {
     {
         if (isConf)
         {
-            Debug.Log("Dans");
             int endPoint = 0;
             int spawnPointIndex = 0;
             int count = 0;

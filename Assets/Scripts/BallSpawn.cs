@@ -24,8 +24,20 @@ public class BallSpawn : MonoBehaviour {
     {
         spawnPointIndex = Random.Range(0, spawnPoints.Length);
 
-        GameObject enn = Instantiate(ball, spawnPoints[spawnPointIndex]);
-        enn.GetComponent<BallMovement>().Conf(spawnPoints);
+        GameObject newBall = Instantiate(ball, spawnPoints[spawnPointIndex]);
+		newBall.GetComponent<BallMovement>().Conf(spawnPoints);
         yield return new WaitForSeconds(spawnTime);
-    }
+
+		while (enabled)
+		{
+			spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+			newBall = Instantiate(ball, spawnPoints[spawnPointIndex]);
+			newBall.GetComponent<BallMovement>().Conf(spawnPoints);
+
+			yield return new WaitForSeconds(spawnTime);
+		}
+
+		yield break;
+	}
 }

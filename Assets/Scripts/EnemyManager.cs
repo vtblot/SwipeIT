@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
 
 		yield return new WaitForSeconds(spawnTime);
 
-		while (enemies.Count > 0)
+		while (enabled)
 		{
 			spawnPointIndex = Random.Range(0, spawnPoints.Length);
 

@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
-	private AudioManager audioManager;
-	// Use this for initialization
-	void Start () {
-		audioManager = FindObjectOfType<AudioManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void LaunchLevel(string level)
     {
